@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    font: inherit;
+
+    /* margin: 0;
+    padding: 0; */
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark light;
+    color: var(--primary-text-color);
+    font-size: 100%;
+    font-family: "PT Sans", "Helvetica Neue", Arial, "PingFang SC",
+        "microsoft yahei", "hiragino sans gb", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+header,
+footer,
+section {
+    /* background-color: var(--primary-bg-color); */
+    border-radius: 30px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 900;
+    line-height: 1;
+}
+
+h1 {
+    /* responsive font */
+    font-size: clamp(2rem, 1rem + 10vw, 5rem);
+
+    /* static font */
+    /* font-size: 3rem; */
+    padding: 2rem 0;
+}
+
+h2 {
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    line-height: 1.5;
+    padding: 1rem;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    border-style: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.container {
+    padding: 0 1em;
+}
+
+.primary-section {
+    background-color: var(--secondary-bg-color);
+}
+
+/*
+
+    MEDIA QUERIES (99% min-width)
+
+    Nobody has a phone that is 270 width - don't worry
+
+*/
+
+@media (min-width: 500px) {
+    /* Screens larger than 500px */
+    body {
+        background-color: var(--secondary-bg-color);
+    }
+
+    /* header,
+    section {
+        padding: 4rem 0;
+    } */
+}
