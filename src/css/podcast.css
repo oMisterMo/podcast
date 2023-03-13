@@ -1,10 +1,29 @@
+#main-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
 audio {
     border-radius: 10px;
 }
 
 button {
-    margin: 2em;
+    margin: 1.5em;
     border: none;
     border-radius: 10px;
     padding: 1.5em;
+    font-size: 4em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
