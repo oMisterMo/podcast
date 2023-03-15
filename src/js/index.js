@@ -5,23 +5,28 @@ console.log("hello podcast...");
 console.log("localStorage: ", localStorage);
 
 const audio = new Audio("./assets/hustle-harder-hustle-smarter.mp3");
-console.log("seekable: ", audio.seekable);
-// audio.play();
+console.log(audio);
 
 const play = document.querySelector("#play");
-const stop = document.querySelector("#stop");
 const pause = document.querySelector("#pause");
+const stop = document.querySelector("#stop");
+stop.style.display = "none";
 
-const REWIND_OFFSET_SECS = 10; // rewind current time by this offset everytime paused
+const REWIND_OFFSET_SECS = 20; // rewind current time by this offset everytime paused
 
 play.addEventListener("click", () => {
-    console.log("play");
+    // console.log("play");
     const { currentTime } = localStorage;
 
     if (currentTime) {
-        console.log("we found current time...", currentTime);
-        audio.fastSeek(currentTime);
-        audio.play();
+        const time = Math.floor(Number(currentTime));
+        console.log("load currentTime: ", time);
+
+        audio.fastSeek(time - REWIND_OFFSET_SECS);
+
+        setTimeout(() => {
+            audio.play();
+        }, 1000);
     } else {
         console.log("No data found, start from the beginning...");
         audio.play();
@@ -33,11 +38,12 @@ play.addEventListener("click", () => {
 
 pause.addEventListener("click", () => {
     if (audio.paused) return;
-    console.log("pause");
+    // console.log("pause");
     audio.pause();
+
     const time = Math.max(0, audio.currentTime - REWIND_OFFSET_SECS);
-    // console.log("currentTime: ", audio.currentTime);
-    // console.log("time set: ", time);
+    console.log("save currentTime: ", time);
+
     localStorage.setItem("currentTime", time);
     play.classList = [];
     play.disabled = false;
