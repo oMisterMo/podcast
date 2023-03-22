@@ -5,7 +5,6 @@ console.log("hello podcast...");
 console.log("localStorage: ", localStorage);
 
 const audio = new Audio("./assets/hustle-harder-hustle-smarter.mp3");
-console.log(audio);
 
 const play = document.querySelector("#play");
 const pause = document.querySelector("#pause");
